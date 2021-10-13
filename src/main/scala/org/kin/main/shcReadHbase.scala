@@ -168,21 +168,13 @@ object shcReadHbase {
 
 object Catalog {
   val schema = s"""{
-                  |   "table":{"namespace":"default", "name":"qy_fm_data", "tableCoder":"PrimitiveType"},
+                  |   "table":{"namespace":"default", "name":"hbase_data", "tableCoder":"PrimitiveType"},
                   |   "rowkey":"key",
                   |   "columns":{
                   |       "row_key":{"cf":"rowkey", "col":"key", "type":"String"},
-                  |       "fm_id":{"cf":"f1", "col":"fm_id", "type":"String"},
-                  |       "flux":{"cf":"f1", "col":"flux", "type":"String"},
-                  |       "pressure":{"cf":"f1", "col":"pressure", "type":"String"},
-                  |       "cl":{"cf":"f1", "col":"cl", "type":"String"},
-                  |       "ph":{"cf":"f1", "col":"ph", "type":"String"},
-                  |       "turbidity":{"cf":"f1", "col":"turbidity", "type":"String"},
-                  |       "plus_total_flux":{"cf":"f1", "col":"plus_total_flux", "type":"String"},
-                  |       "reverse_total_flux":{"cf":"f1", "col":"reverse_total_flux", "type":"String"},
-                  |       "read_time":{"cf":"f1", "col":"read_time", "type":"String"},
-                  |       "receive_time":{"cf":"f1", "col":"receive_time", "type":"String"},
-                  |       "user_id":{"cf":"f1", "col":"user_id", "type":"String"}
+                  |       "id":{"cf":"f1", "col":"id", "type":"String"},
+                  |       "name":{"cf":"f1", "col":"name", "type":"String"},
+                  |       "age":{"cf":"f1", "col":"age", "type":"String"},
                   |   }
                   |}""".stripMargin
 }
