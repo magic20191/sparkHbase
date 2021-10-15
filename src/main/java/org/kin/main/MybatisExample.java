@@ -1,12 +1,15 @@
 package org.kin.main;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.kin.mapper.GamesMapper;
 import org.kin.mapper.SqlMapper;
+import org.kin.pojo.Games;
 
 /**
  * @description:
@@ -35,10 +38,14 @@ public class MybatisExample {
 		SqlSession 的实例不是线程安全的，因此是不能被共享的
 		 */
         SqlSession sqlSession = sqlSessionFactory.openSession();
-        SqlMapper mapper = sqlSession.getMapper(SqlMapper.class);
-        int xiaoming = mapper.addUser("xiaoming");
-        System.out.println(xiaoming);
-        sqlSession.commit();//不用此句，数据库中是不会改变的
+        GamesMapper mapper = sqlSession.getMapper(GamesMapper.class);
+//        int xiaoming = ;  // .addUser("xiaoming");
+        List<Games> a = mapper.findAllGames();
+        for(Games b:a){
+            System.out.println(b.getId() +" " +b.getName());
+        }
+
+//        sqlSession.commit();//不用此句，数据库中是不会改变的
     }
 }
 
